@@ -1,10 +1,19 @@
 package com.urlshortener.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "short_urls")
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class ShortUrl {
 
     @Id
@@ -27,5 +36,4 @@ public class ShortUrl {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // Getters and setters, equals and hashCode, toString
 }

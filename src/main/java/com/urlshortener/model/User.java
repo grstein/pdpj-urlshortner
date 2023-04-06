@@ -1,10 +1,19 @@
 package com.urlshortener.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class User {
 
     @Id
@@ -19,5 +28,4 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<ShortUrl> shortUrls;
 
-    // Getters and setters, equals and hashCode, toString
 }

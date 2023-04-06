@@ -16,7 +16,8 @@
 	<description>The URL Shortener Webservice is a RESTful API designed to shorten long URLs into smaller, more manageable versions, while also keeping track of the number of times each shortened URL is requested. The API will be developed using Java EE with Spring Boot and Hibernate, and will utilize PostgreSQL for the database. The API will also incorporate Keycloak for authentication and authorization.</description>
 	<properties>
 		<keycloak.version>15.0.2</keycloak.version>
-		<java.version>20</java.version>
+		<java.version>17</java.version>
+		<keycloak.version>18.0.0</keycloak.version>
 	</properties>
 	<dependencies>
 	    <dependency>
@@ -24,6 +25,29 @@
         <artifactId>javax.persistence-api</artifactId>
         <version>2.2</version>
     </dependency>
+	<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.22</version>
+        <scope>provided</scope>
+    </dependency>
+	<dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>5.6.0</version>
+</dependency>
+<dependency>
+    <groupId>org.keycloak</groupId>
+    <artifactId>keycloak-spring-security-adapter</artifactId>
+    <version>15.0.2</version>
+</dependency>
+
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-entitymanager</artifactId>
@@ -66,6 +90,38 @@
 			<version>${keycloak.version}</version>
         	<scope>provided</scope>
 		</dependency>
+		    <!-- Spring Security -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    
+    <!-- Spring Security Keycloak -->
+    <dependency>
+        <groupId>org.keycloak</groupId>
+        <artifactId>keycloak-spring-boot-starter</artifactId>
+        <version>15.0.2</version>
+    </dependency>
+
+    <!-- Jakarta Servlet API -->
+    <dependency>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>5.0.0</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- Hibernate -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.5.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>5.6.5.Final</version>
+    </dependency>
 		</dependencies>
 
 	<build>

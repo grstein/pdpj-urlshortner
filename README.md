@@ -26,6 +26,37 @@ Monitoring and Logging: The system should have monitoring and logging features t
 - Hibernate
 - PostgreSQL
 - Keycloak
+
+## Installation and Setup
+
+1. Install Java Development Kit (JDK) version 11 or higher.
+2. Install PostgreSQL and create a new database for the project.
+3. Set up Keycloak for user authentication and configure the Keycloak settings in the `application.properties` file.
+4. Clone the repository and navigate to the project directory.
+5. Update the `application.properties` file with the appropriate database connection settings.
+6. Build the project using the following command: `./mvnw clean package -DskipTests`
+7. Run the application using the following command: `java -jar target/urlshortener-0.0.1-SNAPSHOT.jar`
+
+## API Endpoints
+
+- `POST /api/shorten`: Shortens a given long URL.
+  - Input: JSON object containing the long URL.
+  - Output: JSON object containing the generated short URL.
+  - Authentication: Required
+
+- `GET /api/shorturls`: Retrieves a list of the authenticated user's shortened URLs.
+  - Output: JSON array of the user's shortened URLs.
+  - Authentication: Required
+
+...
+
+## Testing
+
+To run the tests for the project, use the following command in the project directory:
+
+```bash
+./mvnw test```
+
 ## Usage
 To use the URL Shortener Webservice API, users must first create an account and obtain an API key through Keycloak authentication. Once authenticated, users can submit long URLs to the API, which will then generate and return a unique shortened URL. Users can view a list of their previously shortened URLs, delete their own shortened URLs, and track the number of times each shortened URL is requested.
 

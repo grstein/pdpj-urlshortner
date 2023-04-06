@@ -1,5 +1,5 @@
 # Stage 1: Compile the application
-FROM docker.io/openjdk:20-jdk-slim AS build
+FROM docker.io/eclipse-temurin:17-jdk-alpine AS build
 
 WORKDIR /app
 
@@ -16,13 +16,13 @@ COPY settings.xml /root/.m2/settings.xml
 RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
 # Stage 2: Run the application
-FROM docker.io/openjdk:20-jre-slim
+FROM docker.io/eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
-
-COPY --from=build /app/target/url-shortener-0.0.1-SNAPSHOT.jar .
+                  
+COPY --from=build /app/target/urlshortener-0.0.1-SNAPSHOT.war .
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar", "url-shortener-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "urlshortener-0.0.1-SNAPSHOT.war"]
 
